@@ -2,6 +2,8 @@ package timer
 
 import (
 	"fmt"
+	"io"
+	"os"
 	"time"
 )
 
@@ -16,6 +18,8 @@ type Print struct {
 	Fmt string
 	// Units can be set to replace the default duration units of Nanoseconds
 	Units time.Duration
+	// W can be set to override the default output (os.Stdout)
+	W io.Writer
 }
 
 // Act prints the duration prefixed with the tag
@@ -29,5 +33,10 @@ func (p Print) Act(tag string, d time.Duration) {
 	if p.Fmt != "" {
 		f = p.Fmt
 	}
-	fmt.Printf(f, tag, d/units)
+
+	var w io.Writer = os.Stdout
+	if p.W != nil {
+		w = p.W
+	}
+	fmt.Fprintf(w, f, tag, d/units)
 }
