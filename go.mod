@@ -1,3 +1,3 @@
 module github.com/nickwells/timer.mod
 
-go 1.12
+go 1.18
