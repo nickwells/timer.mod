@@ -38,5 +38,6 @@ func (p Print) Act(tag string, d time.Duration) {
 	if p.W != nil {
 		w = p.W
 	}
+
 	fmt.Fprintf(w, f, tag, d/units)
 }
