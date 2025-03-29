@@ -4,7 +4,8 @@ import (
 	"time"
 )
 
-// Actor
+// Actor is the interface that must be satisfied by the second parameter to
+// the Start function.
 type Actor interface {
 	Act(tag string, d time.Duration)
 }

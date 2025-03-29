@@ -7,6 +7,10 @@ import (
 	"time"
 )
 
+// DefaultFmt is the default format used to print the tag and duration when
+// the action function is called. To override this value you should set the
+// Fmt member of the Print struct. Note that the parameters it must take are
+// a string and a time.Duration, in that order.
 const DefaultFmt = "%s: %d\n"
 
 // Print implements the Actor interface and so is suitable for passing to
