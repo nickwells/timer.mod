@@ -14,6 +14,7 @@ var secondPrinter = timer.Print{
 
 func ExampleStart() {
 	defer timer.Start("ExampleStart", secondPrinter)()
+
 	time.Sleep(1 * time.Second)
 	// Output:
 	// ExampleStart: 1 second
@@ -24,6 +25,7 @@ func ExampleStartF() {
 		func(tag string, d time.Duration) {
 			fmt.Printf("%s: %d second\n", tag, d/time.Second)
 		})()
+
 	time.Sleep(1 * time.Second)
 	// Output:
 	// ExampleStartF: 1 second
